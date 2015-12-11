@@ -1,29 +1,22 @@
-# JPER SWORD IN Install
+# JPER OAI-PMH Install
 
 Clone the project:
 
-    git clone https://github.com/JiscPER/jper-sword-in.git
+    git clone https://github.com/JiscPER/jper-oaipmh.git
 
 get all the submodules
 
-    cd myapp
-    git submodule init
-    git submodule update
+    cd jper-oaipmh
+    git submodule update --init --recursive
 
-This will initialise and clone the esprit, magnificent octopus and Simple-Sword-Server libraries
-
-Then get the submodules for Magnificent Octopus
-
-    cd jper-sword-in/magnificent-octopus
-    git submodule init
-    git submodule update
+This will initialise and clone the esprit, and maginficent-octopus submodules, and all their submodules in turn.
 
 Create your virtualenv and activate it
 
     virtualenv /path/to/venv
     source /path/tovenv/bin/activate
 
-Install Esprit, Magnificent Octopus and Simple-Sword-Server (in that order)
+Install Esprit, Magnificent Octopus and this application in that order:
 
 To do them all as one, use
 
@@ -37,7 +30,7 @@ or to do them individually use
     cd myapp/magnificent-octopus
     pip install -e .
     
-    cd Simple-Sword-Server
+    cd myapp
     pip install -e .
     
 Create your local config
@@ -46,11 +39,6 @@ Create your local config
     touch local.cfg
 
 Then you can override any config values that you need to
-
-To start the application, you'll also need to install it into the virtualenv just this first time
-
-    cd jper-sword-in
-    pip install -e .
 
 Then, start your app with
 
