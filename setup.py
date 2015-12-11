@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name = 'jper-sword-in',
+    name = 'jper-oaipmh',
     version = '1.0.0',
     packages = find_packages(),
     install_requires = [
@@ -12,7 +12,7 @@ setup(
     url = 'http://cottagelabs.com/',
     author = 'Cottage Labs',
     author_email = 'us@cottagelabs.com',
-    description = 'SWORDv2 deposit endpoint for JPER',
+    description = 'OAI-PMH endpoint for JPER',
     classifiers = [
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',

@@ -1,1 +1,0 @@
-This is where the default SSS repository will store files during upload

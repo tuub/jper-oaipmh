@@ -1,1 +1,0 @@
-This is where the default SSS repository implementation will put its collections and files
