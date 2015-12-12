@@ -34,14 +34,9 @@ if __name__ == "__main__":
     initialise()
 
 # most of the imports should be done here, after initialise()
-from flask import render_template
 
-from octopus.modules.swordv2.swordv2_server import blueprint as swordv2
-app.register_blueprint(swordv2)
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('errors/404.html'), 404
+from service.view.oaipmh import blueprint as oai
+app.register_blueprint(oai)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=app.config['PORT'], threaded=False)

@@ -58,7 +58,13 @@ Returned information:
 
 * Metadata Format: oai_dc (schema: http://www.openarchives.org/OAI/2.0/oai_dc.xsd, namespace: http://www.openarchives.org/OAI/2.0/oai_dc/)
 
-JPER API request: None
+JPER API request: 
+
+If an identifier is specified in the request:
+
+    GET /notification/<notification id>
+
+This is to confirm that the identifier exists before responding positively regarding the metadata formats.
 
 ## ListIdentifiers
 
