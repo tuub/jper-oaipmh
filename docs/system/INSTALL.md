@@ -14,7 +14,7 @@ This will initialise and clone the esprit, and maginficent-octopus submodules, a
 Create your virtualenv and activate it
 
     virtualenv /path/to/venv
-    source /path/tovenv/bin/activate
+    source /path/to/venv/bin/activate
 
 Install Esprit, Magnificent Octopus and this application in that order:
 

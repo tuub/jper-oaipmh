@@ -72,9 +72,9 @@ This request asks the OAI-PMH server to list the identifiers of all records whic
 
 * verb: ListIdentifiers
 * from: lower bound for request (optional)
-* until: upper bound for request (optional)
+* until: upper bound for request (unsupported)
 * metadataPrefix: metadata format supported by identifier
-* set: set to retrieve from
+* set: set to retrieve from (unsupported)
 * resumptionToken: paging control from the previous request (exclusive)
 
 Returned information:
@@ -90,10 +90,11 @@ Params:
 * page: 1, or from resumptionToken
 * pageSize: 100
 
+The request is of the form:
+
     GET /routed/<repo id>?<params>
 
-If the client provides an "until" date, once the requests to the API pass that date, the OAI-PMH server will filter 
-results from the current request, and cease issuing resumption tokens.
+Note that this endpoint disregards any "until" or "set" parameters, as JPER has no equivalent concepts.
 
 
 ## ListRecords
@@ -102,9 +103,9 @@ This request asks the OAI-PMH server to list the full metadata records of all re
 
 * verb: ListRecords
 * from: lower bound for request (optional)
-* until: upper bound for request (optional)
+* until: upper bound for request (unsupported)
 * metadataPrefix: metadata format supported by record
-* set: set to retrieve from
+* set: set to retrieve from (unsupported)
 * resumptionToken: paging control from the previous request (exclusive)
 
 Returned information:
@@ -120,10 +121,11 @@ Params:
 * page: 1, or from resumptionToken
 * pageSize: 100
 
+The request is of the form:
+
     GET /routed/<repo id>?<params>
 
-If the client provides an "until" date, once the requests to the API pass that date, the OAI-PMH server will filter 
-results from the current request, and cease issuing resumption tokens
+Note that this endpoint disregards any "until" or "set" parameters, as JPER has no equivalent concepts.
 
 
 ## GetRecord
