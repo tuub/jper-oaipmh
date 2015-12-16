@@ -9,8 +9,7 @@ class OAIPMHRecord(object):
         return dates.before_now(app.config.get("OAI_MAX_LOOKBACK", 7776000)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def identifier_exists(self, identifier):
-        j = client.JPER()
-        n = j.get_notification(identifier)
+        n = self.pull(identifier)
         return n is not None
 
     def list_sets(self):
@@ -33,6 +32,11 @@ class OAIPMHRecord(object):
         nl = j.list_notifications(from_date, page=page, page_size=list_size, **kwargs)
 
         return nl.total, nl.notifications
+
+    def pull(self, identifier):
+        j = client.JPER()
+        n = j.get_notification(identifier)
+        return n
 
 class OAIPMHAll(OAIPMHRecord):
     pass

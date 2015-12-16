@@ -256,46 +256,12 @@ def _resume_list_records(dao, base_url, resumption_token=None):
     return _parameterised_list_records(dao, base_url, **params)
 
 
-
-
-
-def get_record(dao, base_url, identifier=None, metadata_prefix=None):
-    # check that we have both identifier and prefix - they are both required
-    if identifier is None or metadata_prefix is None:
-        return BadArgument(base_url)
-    
-    # get the formats and check that we have formats that we can disseminate
-    formats = app.config.get("OAIPMH_METADATA_FORMATS", {}).get(specified_oai_endpoint)
-    if formats is None or len(formats) == 0:
-        return CannotDisseminateFormat(base_url)
-    
-    # look for our record of the format we've been asked for
-    for f in formats:
-        if f.get("metadataPrefix") == metadata_prefix:
-            # obtain the record from the dao
-            record = dao.pull(identifier)
-            if record is None:
-                return IdDoesNotExist(base_url)
-            # do the crosswalk
-            xwalk = get_crosswalk(f.get("metadataPrefix"), dao.__type__)
-            metadata = xwalk.crosswalk(record)
-            header = xwalk.header(record)
-            # make the response
-            oai_id = oaitools.make_oai_identifier(identifier, dao.__type__)
-            gr = GetRecord(base_url, oai_id, metadata_prefix)
-            gr.metadata = metadata
-            gr.header = header
-            return gr
-    
-    # if we have not returned already, this means we can't disseminate this format
-    return CannotDisseminateFormat(base_url)
-
-def list_identifiers(dao, base_url, specified_oai_endpoint, metadata_prefix=None, from_date=None, until_date=None, oai_set=None, resumption_token=None):
+def list_identifiers(dao, base_url, metadata_prefix=None, from_date=None, until_date=None, oai_set=None, resumption_token=None):
     if resumption_token is None:
         # do an initial list records
         return _parameterised_list_identifiers(
             dao, base_url,
-            specified_oai_endpoint, metadata_prefix=metadata_prefix, from_date=from_date,
+            metadata_prefix=metadata_prefix, from_date=from_date,
             until_date=until_date, oai_set=oai_set
         )
     else:
@@ -303,18 +269,18 @@ def list_identifiers(dao, base_url, specified_oai_endpoint, metadata_prefix=None
         if (metadata_prefix is not None or from_date is not None or until_date is not None
                 or oai_set is not None):
             return BadArgument(base_url)
-        return _resume_list_identifiers(dao, base_url, specified_oai_endpoint, resumption_token=resumption_token)
+        return _resume_list_identifiers(dao, base_url, resumption_token=resumption_token)
 
-def _parameterised_list_identifiers(dao, base_url, specified_oai_endpoint, metadata_prefix=None, from_date=None, until_date=None, oai_set=None, start_number=0):
+def _parameterised_list_identifiers(dao, base_url, metadata_prefix=None, from_date=None, until_date=None, oai_set=None, start_number=0):
     # metadata prefix is required
     if metadata_prefix is None:
         return BadArgument(base_url)
-    
+
     # get the formats and check that we have formats that we can disseminate
-    formats = app.config.get("OAIPMH_METADATA_FORMATS", {}).get(specified_oai_endpoint)
+    formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
     if formats is None or len(formats) == 0:
         return CannotDisseminateFormat(base_url)
-    
+
     # check that the dates are formatted correctly
     fl = True
     ul = True
@@ -326,29 +292,21 @@ def _parameterised_list_identifiers(dao, base_url, specified_oai_endpoint, metad
     if not fl or not ul:
         return BadArgument(base_url)
 
-    #try:
-        #if from_date is not None:
-        #    datetime.strptime(from_date, "%Y-%m-%d")
-        #if until_date is not None:
-        #    datetime.strptime(until_date, "%Y-%m-%d")
-    #except:
-    #    return BadArgument(base_url)
-    
     # get the result set size
     list_size = app.config.get("OAIPMH_LIST_IDENTIFIERS_PAGE_SIZE", 25)
-    
+
     # decode the oai_set to something we can query with
     decoded_set = oaitools.decode_set_spec(oai_set) if oai_set is not None else None
-    
+
     for f in formats:
         if f.get("metadataPrefix") == metadata_prefix:
             # do the query and set up the response object
             total, results = dao.list_records(from_date, until_date, decoded_set, list_size, start_number)
-            
+
             # if there are no results, PMH requires us to throw an error
             if len(results) == 0:
                 return NoRecordsMatch(base_url)
-            
+
             # work out if we need a resumption token.  It can have one of 3 values:
             # - None = do not include the rt in the response
             # - some value = include in the response
@@ -358,32 +316,66 @@ def _parameterised_list_identifiers(dao, base_url, specified_oai_endpoint, metad
                 new_start = start_number + len(results)
                 resumption_token = oaitools.make_resumption_token(metadata_prefix=metadata_prefix, from_date=from_date,
                                         until_date=until_date, oai_set=oai_set, start_number=new_start)
-            else:
-                resumption_token = ""
-            
+            #else:
+            #    resumption_token = ""
+
             li = ListIdentifiers(base_url, from_date=from_date, until_date=until_date, oai_set=oai_set, metadata_prefix=metadata_prefix)
             if resumption_token is not None:
                 expiry = app.config.get("OAIPMH_RESUMPTION_TOKEN_EXPIRY", -1)
                 li.set_resumption(resumption_token, complete_list_size=total, cursor=start_number, expiry=expiry)
-            
+
             for r in results:
                 # do the crosswalk (header only in this operation)
-                xwalk = get_crosswalk(f.get("metadataPrefix"), dao.__type__)
+                xwalk = get_crosswalk(f.get("metadataPrefix"))
                 header = xwalk.header(r)
-                
+
                 # add to the response
                 li.add_record(header)
             return li
-    
+
     # if we have not returned already, this means we can't disseminate this format
     return CannotDisseminateFormat(base_url)
 
-def _resume_list_identifiers(dao, base_url, specified_oai_endpoint, resumption_token=None):
+def _resume_list_identifiers(dao, base_url, resumption_token=None):
     try:
         params = oaitools.decode_resumption_token(resumption_token)
     except oaitools.ResumptionTokenException:
         return BadResumptionToken(base_url)
-    return _parameterised_list_identifiers(dao, base_url, specified_oai_endpoint, **params)
+    return _parameterised_list_identifiers(dao, base_url, **params)
+
+
+def get_record(dao, base_url, identifier=None, metadata_prefix=None):
+    # check that we have both identifier and prefix - they are both required
+    if identifier is None or metadata_prefix is None:
+        return BadArgument(base_url)
+    
+    # get the formats and check that we have formats that we can disseminate
+    formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
+    if formats is None or len(formats) == 0:
+        return CannotDisseminateFormat(base_url)
+    
+    # look for our record of the format we've been asked for
+    for f in formats:
+        if f.get("metadataPrefix") == metadata_prefix:
+            # obtain the record from the dao
+            record = dao.pull(identifier)
+            if record is None:
+                return IdDoesNotExist(base_url)
+
+            # do the crosswalk
+            xwalk = get_crosswalk(f.get("metadataPrefix"))
+            metadata = xwalk.crosswalk(record)
+            header = xwalk.header(record)
+
+            # make the response
+            oai_id = oaitools.make_oai_identifier(identifier, "notification")
+            gr = GetRecord(base_url, oai_id, metadata_prefix)
+            gr.metadata = metadata
+            gr.header = header
+            return gr
+    
+    # if we have not returned already, this means we can't disseminate this format
+    return CannotDisseminateFormat(base_url)
 
 
 
