@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>service.xml</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="service-module.html">Package&nbsp;service</a> ::
+        Module&nbsp;xml
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="service.xml-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="service.xml-module.html">Module service.xml</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Some useful tools for dealing with the oddities of XML serialisation</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">octopus</tt><tt class="py-op">.</tt><tt class="py-name">core</tt> <tt class="py-keyword">import</tt> <tt class="py-name">app</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">###########################################################</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># XML Character encoding hacks</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">###########################################################</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable service.xml._illegal_unichrs=service.xml-module.html#_illegal_unichrs"><a title="service.xml._illegal_unichrs" class="py-name" href="#" onclick="return doclink('link-0', '_illegal_unichrs', 'link-0');">_illegal_unichrs</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-number">0x00</tt><tt class="py-op">,</tt> <tt class="py-number">0x08</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x0B</tt><tt class="py-op">,</tt> <tt class="py-number">0x0C</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x0E</tt><tt class="py-op">,</tt> <tt class="py-number">0x1F</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                    <tt class="py-op">(</tt><tt class="py-number">0x7F</tt><tt class="py-op">,</tt> <tt class="py-number">0x84</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x86</tt><tt class="py-op">,</tt> <tt class="py-number">0x9F</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                    <tt class="py-op">(</tt><tt class="py-number">0xFDD0</tt><tt class="py-op">,</tt> <tt class="py-number">0xFDDF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0xFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xFFFF</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">maxunicode</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">0x10000</tt><tt class="py-op">:</tt>  <tt class="py-comment"># not narrow build</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-1" class="py-name"><a title="service.xml._illegal_unichrs" class="py-name" href="#" onclick="return doclink('link-1', '_illegal_unichrs', 'link-0');">_illegal_unichrs</a></tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-number">0x1FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x1FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x2FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x2FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0x3FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x3FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x4FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x4FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0x5FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x5FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x6FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x6FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0x7FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x7FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x8FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x8FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0x9FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x9FFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0xAFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xAFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0xBFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xBFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0xCFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xCFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0xDFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xDFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0xEFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xEFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-number">0xFFFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0xFFFFF</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">0x10FFFE</tt><tt class="py-op">,</tt> <tt class="py-number">0x10FFFF</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable service.xml._illegal_ranges=service.xml-module.html#_illegal_ranges"><a title="service.xml._illegal_ranges" class="py-name" href="#" onclick="return doclink('link-2', '_illegal_ranges', 'link-2');">_illegal_ranges</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"%s-%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">unichr</tt><tt class="py-op">(</tt><tt class="py-name">low</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">unichr</tt><tt class="py-op">(</tt><tt class="py-name">high</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                   <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">low</tt><tt class="py-op">,</tt> <tt class="py-name">high</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt id="link-3" class="py-name"><a title="service.xml._illegal_unichrs" class="py-name" href="#" onclick="return doclink('link-3', '_illegal_unichrs', 'link-0');">_illegal_unichrs</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable service.xml._illegal_xml_chars_RE=service.xml-module.html#_illegal_xml_chars_RE"><a title="service.xml._illegal_xml_chars_RE" class="py-name" href="#" onclick="return doclink('link-4', '_illegal_xml_chars_RE', 'link-4');">_illegal_xml_chars_RE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">u'[%s]'</tt> <tt class="py-op">%</tt> <tt class="py-string">u''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name"><a title="service.xml._illegal_ranges" class="py-name" href="#" onclick="return doclink('link-5', '_illegal_ranges', 'link-2');">_illegal_ranges</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="valid_XML_char_ordinal"></a><div id="valid_XML_char_ordinal-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="valid_XML_char_ordinal-toggle" onclick="return toggle('valid_XML_char_ordinal');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="service.xml-module.html#valid_XML_char_ordinal">valid_XML_char_ordinal</a><tt class="py-op">(</tt><tt class="py-param">i</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="valid_XML_char_ordinal-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="valid_XML_char_ordinal-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    Is the character i an allowed XML character</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">    :param i: the character</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">    :return: True if allowed, False if not</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">(</tt> <tt class="py-comment"># conditions ordered by presumed frequency</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-number">0x20</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">i</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0xD7FF</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-keyword">or</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-number">0x9</tt><tt class="py-op">,</tt> <tt class="py-number">0xA</tt><tt class="py-op">,</tt> <tt class="py-number">0xD</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-keyword">or</tt> <tt class="py-number">0xE000</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">i</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0xFFFD</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-keyword">or</tt> <tt class="py-number">0x10000</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">i</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0x10FFFF</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="clean_unreadable"></a><div id="clean_unreadable-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="clean_unreadable-toggle" onclick="return toggle('clean_unreadable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="service.xml-module.html#clean_unreadable">clean_unreadable</a><tt class="py-op">(</tt><tt class="py-param">input_string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="clean_unreadable-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="clean_unreadable-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">    Take the string and strip any illegal XML characters</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring">    :param input_string: an unreadable XML string</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring">    :return: a cleaned string - it will lose information, but what else can you do?</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-6" class="py-name"><a title="service.xml._illegal_xml_chars_RE" class="py-name" href="#" onclick="return doclink('link-6', '_illegal_xml_chars_RE', 'link-4');">_illegal_xml_chars_RE</a></tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-name">input_string</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt> <tt class="py-keyword">as</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-string">"Unable to strip illegal XML chars from: {x}, {y}"</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Class Method service.oaitools.DateFormat.format()=service.oaitools.DateFormat-class.html#format"><a title="service.oaitools.DateFormat.format" class="py-name" href="#" onclick="return doclink('link-7', 'format', 'link-7');">format</a></tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">=</tt><tt class="py-name">input_string</tt><tt class="py-op">,</tt> <tt class="py-name">y</tt><tt class="py-op">=</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">input_string</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="xml_clean"></a><div id="xml_clean-def"><a name="L56"></a><tt class="py-lineno">56</tt> <a class="py-toggle" href="#" id="xml_clean-toggle" onclick="return toggle('xml_clean');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="service.xml-module.html#xml_clean">xml_clean</a><tt class="py-op">(</tt><tt class="py-param">input_string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="xml_clean-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="xml_clean-expanded"><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-docstring">    Brute force clean all the characters in a string until they absolutely definitely will</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-docstring">    serialise in XML (slower than clean_unreadable, but more reliable)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-docstring">    :param input_string: illegal XML string</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-docstring">    :return: legal XML string</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">    <tt class="py-name">cleaned_string</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">c</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-name">input_string</tt> <tt class="py-keyword">if</tt> <tt id="link-8" class="py-name" targets="Function service.xml.valid_XML_char_ordinal()=service.xml-module.html#valid_XML_char_ordinal"><a title="service.xml.valid_XML_char_ordinal" class="py-name" href="#" onclick="return doclink('link-8', 'valid_XML_char_ordinal', 'link-8');">valid_XML_char_ordinal</a></tt><tt class="py-op">(</tt><tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cleaned_string</tt> </tt>
+</div><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="set_text"></a><div id="set_text-def"><a name="L67"></a><tt class="py-lineno">67</tt> <a class="py-toggle" href="#" id="set_text-toggle" onclick="return toggle('set_text');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="service.xml-module.html#set_text">set_text</a><tt class="py-op">(</tt><tt class="py-param">element</tt><tt class="py-op">,</tt> <tt class="py-param">input_string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="set_text-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="set_text-expanded"><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-docstring">    Set the given text on the given element, carrying out whatever XML cleanup is also requried.</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"><tt class="py-docstring">    :param element: element to write to</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"><tt class="py-docstring">    :param input_string: string to write</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"><tt class="py-docstring">    :return:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">input_string</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">    <tt class="py-name">input_string</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name" targets="Function service.xml.clean_unreadable()=service.xml-module.html#clean_unreadable"><a title="service.xml.clean_unreadable" class="py-name" href="#" onclick="return doclink('link-9', 'clean_unreadable', 'link-9');">clean_unreadable</a></tt><tt class="py-op">(</tt><tt class="py-name">input_string</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-name">input_string</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Function service.xml.xml_clean()=service.xml-module.html#xml_clean"><a title="service.xml.xml_clean" class="py-name" href="#" onclick="return doclink('link-10', 'xml_clean', 'link-10');">xml_clean</a></tt><tt class="py-op">(</tt><tt class="py-name">input_string</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Dec 16 17:54:31 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

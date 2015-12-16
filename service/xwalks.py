@@ -1,3 +1,7 @@
+"""
+Crosswalks from native JPER JSON metadata to supported formats by OAI
+"""
+
 from lxml import etree
 from copy import deepcopy
 from service.xml import set_text
@@ -9,6 +13,10 @@ from service import oaitools
 #####################################################################
 
 class OAI_Crosswalk(object):
+    """
+    Base class for all OAI crosswalks.  Provides stub methods and namespace declarations
+    """
+
     PMH_NAMESPACE = "http://www.openarchives.org/OAI/2.0/"
     PMH = "{%s}" % PMH_NAMESPACE
 
@@ -18,12 +26,30 @@ class OAI_Crosswalk(object):
     NSMAP = {None: PMH_NAMESPACE, "xsi": XSI_NAMESPACE}
 
     def crosswalk(self, record):
+        """
+        Convert the record to an etree.Element object which contains
+        the appropriate metadata
+
+        :param record: notification JSON
+        :return: XML element
+        """
         raise NotImplementedError()
 
     def header(self, record):
+        """
+        Convert the record to an etree.Element object representing the record's
+        header information.
+
+        :param record: notification JSON
+        :return: XML element
+        """
         raise NotImplementedError()
 
 class OAI_DC(OAI_Crosswalk):
+    """
+    OAI_DC crosswalk from notification JSON
+    """
+
     OAIDC_NAMESPACE = "http://www.openarchives.org/OAI/2.0/oai_dc/"
     OAIDC = "{%s}" % OAIDC_NAMESPACE
 

@@ -1,3 +1,7 @@
+"""
+Some useful tools for dealing with the oddities of XML serialisation
+"""
+
 import re, sys
 from octopus.core import app
 
@@ -23,6 +27,12 @@ _illegal_ranges = ["%s-%s" % (unichr(low), unichr(high))
 _illegal_xml_chars_RE = re.compile(u'[%s]' % u''.join(_illegal_ranges))
 
 def valid_XML_char_ordinal(i):
+    """
+    Is the character i an allowed XML character
+
+    :param i: the character
+    :return: True if allowed, False if not
+    """
     return ( # conditions ordered by presumed frequency
         0x20 <= i <= 0xD7FF
         or i in (0x9, 0xA, 0xD)
@@ -31,6 +41,12 @@ def valid_XML_char_ordinal(i):
         )
 
 def clean_unreadable(input_string):
+    """
+    Take the string and strip any illegal XML characters
+
+    :param input_string: an unreadable XML string
+    :return: a cleaned string - it will lose information, but what else can you do?
+    """
     try:
         return _illegal_xml_chars_RE.sub("", input_string)
     except TypeError as e:
@@ -38,10 +54,24 @@ def clean_unreadable(input_string):
         return None
 
 def xml_clean(input_string):
+    """
+    Brute force clean all the characters in a string until they absolutely definitely will
+    serialise in XML (slower than clean_unreadable, but more reliable)
+
+    :param input_string: illegal XML string
+    :return: legal XML string
+    """
     cleaned_string = ''.join(c for c in input_string if valid_XML_char_ordinal(ord(c)))
     return cleaned_string
 
 def set_text(element, input_string):
+    """
+    Set the given text on the given element, carrying out whatever XML cleanup is also requried.
+
+    :param element: element to write to
+    :param input_string: string to write
+    :return:
+    """
     if input_string is None:
         return
     input_string = clean_unreadable(input_string)

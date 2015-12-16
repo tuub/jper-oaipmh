@@ -31,7 +31,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-sword-in">Jisc Publications Router - SWORDv2 deposit endpoint</a></th>
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
           </tr></table></th>
   </tr>
 </table>
@@ -61,25 +61,25 @@
  <a href="#C">C</a>
  <a href="#D">D</a>
  <a href="#E">E</a>
-  F
+ <a href="#F">F</a>
  <a href="#G">G</a>
-  H
+ <a href="#H">H</a>
  <a href="#I">I</a>
  <a href="#J">J</a>
   K
  <a href="#L">L</a>
  <a href="#M">M</a>
-  N
-  O
+ <a href="#N">N</a>
+ <a href="#O">O</a>
  <a href="#P">P</a>
   Q
  <a href="#R">R</a>
  <a href="#S">S</a>
  <a href="#T">T</a>
- <a href="#U">U</a>
-  V
+  U
+ <a href="#V">V</a>
  <a href="#W">W</a>
-  X
+ <a href="#X">X</a>
   Y
   Z
  <a href="#_">_</a>
@@ -92,15 +92,31 @@
 <tr>
 <td width="33%" class="link-index"><a href="config.service-module.html#ACCOUNT_ENABLE">ACCOUNT_ENABLE</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#agg_uri">agg_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.GetRecord-class.html#add_request_attributes">add_request_attributes()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.GetRecord-class.html">GetRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#add_request_attributes">add_request_attributes()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListMetadataFormats-class.html#add_format">add_format()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListMetadataFormats-class.html">ListMetadataFormats</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html#add_request_attributes">add_request_attributes()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListSets-class.html#add_set">add_set()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListSets-class.html">ListSets</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html#add_record">add_record()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListMetadataFormats-class.html#add_request_attributes">add_request_attributes()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListMetadataFormats-class.html">ListMetadataFormats</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#add_content">add_content()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#atom_id">atom_id()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html#add_record">add_record()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html#add_request_attributes">add_request_attributes()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
 </table>
@@ -109,28 +125,36 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperAuthenticator-class.html#basic_authenticate">basic_authenticate()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperAuthenticator-class.html">JperAuthenticator</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadArgument-class.html">BadArgument</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadVerb-class.html">BadVerb</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
-<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadResumptionToken-class.html">BadResumptionToken</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#blueprint">blueprint</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="C">C</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#col_uri">col_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#cont_uri">cont_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.CannotDisseminateFormat-class.html">CannotDisseminateFormat</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="config-module.html">config</a></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#crosswalk">crosswalk()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
 </tr>
 <tr>
-<td width="33%" class="link-index"><a href="config-module.html">config</a></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#container_exists">container_exists()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#clean_unreadable">clean_unreadable()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#crosswalk">crosswalk()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
 </table>
@@ -139,18 +163,25 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html">DateFormat</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
 <td width="33%" class="link-index"><a href="config.service-module.html#DEBUG">DEBUG</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#delete_content">delete_content()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#deposit_new">deposit_new()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html#default_earliest">default_earliest()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools.DateFormat-class.html">DateFormat</a>)</span></td>
 </tr>
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#delete_container">delete_container()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#deposit_existing">deposit_existing()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#DC">DC</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#decode_resumption_token">decode_resumption_token()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#DC_NAMESPACE">DC_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#decode_set_spec">decode_set_spec()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
 </table>
@@ -159,12 +190,24 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#edit_uri">edit_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html#earliest_datestamp">earliest_datestamp()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a>)</span></td>
 <td width="33%" class="link-index"><a href="config.service-module.html#ELASTIC_SEARCH_MAPPINGS">ELASTIC_SEARCH_MAPPINGS</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#em_uri">em_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#extract_internal_id">extract_internal_id()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+</tr>
+<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="F">F</a></h2></td>
+<td valign="top">
+<table class="link-index" width="100%" border="1">
+<tr>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html#format">format()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools.DateFormat-class.html">DateFormat</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index">&nbsp;</td>
 </tr>
 <tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
@@ -173,12 +216,55 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#get_container">get_container()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#get_media_resource">get_media_resource()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#get_statement">get_statement()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#get_crosswalk">get_crosswalk()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#get_record_params">get_record_params()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.GetRecord-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.GetRecord-class.html">GetRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListSets-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListSets-class.html">ListSets</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#get_response_date">get_response_date()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.Identify-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.Identify-class.html">Identify</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAIPMHError-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAIPMHError-class.html">OAIPMHError</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.GetRecord-class.html">GetRecord</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html#granularity">granularity()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools.DateFormat-class.html">DateFormat</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListMetadataFormats-class.html#get_element">get_element()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListMetadataFormats-class.html">ListMetadataFormats</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#get_record">get_record()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="H">H</a></h2></td>
+<td valign="top">
+<table class="link-index" width="100%" border="1">
+<tr>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#header">header()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#header">header()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
 </tr>
 <tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
@@ -187,12 +273,20 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.IdDoesNotExist-class.html">IdDoesNotExist</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.Identify-class.html">Identify</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
 <td width="33%" class="link-index"><a href="config.service-module.html#INITIALISE_INDEX">INITIALISE_INDEX</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html#identifier_exists">identifier_exists()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#identify">identify()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
-<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="J">J</a></h2></td>
@@ -201,63 +295,206 @@
 <tr>
 <td width="33%" class="link-index"><a href="config.service-module.html#JPER_API_KEY">JPER_API_KEY</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperAuth-class.html">JperAuth</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword-module.html">service.sword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html">JperSword</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword-module.html">service.sword</a>)</span></td>
-</tr>
-<tr>
 <td width="33%" class="link-index"><a href="config.service-module.html#JPER_BASE_URL">JPER_BASE_URL</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperAuthenticator-class.html">JperAuthenticator</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword-module.html">service.sword</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
+<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="L">L</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#list_collection">list_collection()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html#legitimate_granularity">legitimate_granularity()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools.DateFormat-class.html">DateFormat</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRepo-class.html#list_records">list_records()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRepo-class.html">OAIPMHRepo</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_identifiers">list_identifiers()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_records">list_records()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListMetadataFormats-class.html">ListMetadataFormats</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_identifiers_params">list_identifiers_params()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_records_params">list_records_params()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_metadata_formats">list_metadata_formats()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html#list_sets">list_sets()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListSets-class.html">ListSets</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_metadata_formats_params">list_metadata_formats_params()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_sets">list_sets()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
-<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html#list_records">list_records()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#list_sets_params">list_sets_params()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="M">M</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#media_resource_exists">media_resource_exists()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#make_oai_identifier">make_oai_identifier()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#make_set_spec">make_set_spec()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
-<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#make_resumption_token">make_resumption_token()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models-module.html">models</a><br />
+<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="N">N</a></h2></td>
+<td valign="top">
+<table class="link-index" width="100%" border="1">
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoMetadataFormats-class.html">NoMetadataFormats</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoSetHierarchy-class.html">NoSetHierarchy</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#NSMAP">NSMAP</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoRecordsMatch-class.html">NoRecordsMatch</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools.DateFormat-class.html#now">now()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools.DateFormat-class.html">DateFormat</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#NSMAP">NSMAP</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html#normalise_date">normalise_date()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#NSMAP">NSMAP</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="O">O</a></h2></td>
+<td valign="top">
+<table class="link-index" width="100%" border="1">
+<tr>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAI_ADMIN_EMAIL">OAI_ADMIN_EMAIL</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#OAIDC">OAIDC</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAIPMH_METADATA_FORMATS">OAIPMH_METADATA_FORMATS</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks-module.html">service.xwalks</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html#OAIDC_NAMESPACE">OAIDC_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_DC-class.html">OAI_DC</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAIPMH_RESUMPTION_TOKEN_EXPIRY">OAIPMH_RESUMPTION_TOKEN_EXPIRY</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAI_CROSSWALKS">OAI_CROSSWALKS</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh-module.html">oaipmh</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models-module.html">service.models</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHAll-class.html">OAIPMHAll</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh-module.html">service.models.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_DC-class.html">OAI_DC</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks-module.html">service.xwalks</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html">oaipmh</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view-module.html">service.view</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAIPMHError-class.html">OAIPMHError</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAI_DC_METADATA_FORMAT">OAI_DC_METADATA_FORMAT</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#oaipmh">oaipmh()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh-module.html">service.models.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAI_MAX_LOOKBACK">OAI_MAX_LOOKBACK</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAIPMH_IDENTIFIER_NAMESPACE">OAIPMH_IDENTIFIER_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRepo-class.html">OAIPMHRepo</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh-module.html">service.models.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAIPMH_LIST_IDENTIFIERS_PAGE_SIZE">OAIPMH_LIST_IDENTIFIERS_PAGE_SIZE</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools-module.html">oaitools</a><br />
+<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAI_REPO_NAME">OAI_REPO_NAME</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#OAIPMH_LIST_RECORDS_PAGE_SIZE">OAIPMH_LIST_RECORDS_PAGE_SIZE</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="P">P</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.web-module.html#page_not_found">page_not_found()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.web-module.html">service.web</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#PMH">PMH</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#PMH_NAMESPACE">PMH_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
 <td width="33%" class="link-index"><a href="config.service-module.html#PORT">PORT</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
 </tr>
-<tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#PMH">PMH</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#PMH_NAMESPACE">PMH_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRecord-class.html#pull">pull()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRecord-class.html">OAIPMHRecord</a>)</span></td>
+</tr>
 </table>
 </td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="R">R</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#replace">replace()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.oaitools.ResumptionTokenException-class.html">ResumptionTokenException</a><br />
+<span class="index-where">(in&nbsp;<a href="service.oaitools-module.html">service.oaitools</a>)</span></td>
 <td width="33%" class="link-index">&nbsp;</td>
 <td width="33%" class="link-index">&nbsp;</td>
 </tr>
@@ -268,27 +505,26 @@
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#sd_uri">sd_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
-<td width="33%" class="link-index"><a href="service-module.html">service</a></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#state_uri">state_uri()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
-</tr>
-<tr>
 <td width="33%" class="link-index"><a href="config.service-module.html#SECRET_KEY">SECRET_KEY</a><br />
 <span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#service_document">service_document()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword-module.html">sword</a><br />
-<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service-module.html">service</a></td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#set_text">set_text()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#serialise">serialise()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html#set_resumption">set_resumption()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#SSL">SSL</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
 </tr>
 <tr>
 <td width="33%" class="link-index"><a href="config.service-module.html">service</a><br />
 <span class="index-where">(in&nbsp;<a href="config-module.html">config</a>)</span></td>
-<td width="33%" class="link-index"><a href="config.service-module.html#SSL">SSL</a><br />
-<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
-<td width="33%" class="link-index"><a href="config.service-module.html#SWORDV2_SERVER_CONFIG">SWORDV2_SERVER_CONFIG</a><br />
-<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html#set_resumption">set_resumption()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
 </tr>
 </table>
 </td></tr>
@@ -304,14 +540,16 @@
 <tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
 </td></tr>
-<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="U">U</a></h2></td>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="V">V</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html">URIManager</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword-module.html">service.sword</a>)</span></td>
-<td width="33%" class="link-index">&nbsp;</td>
-<td width="33%" class="link-index">&nbsp;</td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#valid_XML_char_ordinal">valid_XML_char_ordinal()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#VERSION">VERSION</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view-module.html">view</a><br />
+<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
 </tr>
 <tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
@@ -328,32 +566,114 @@
 <tr><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td><td class="link-index">&nbsp;</td></tr>
 </table>
 </td></tr>
+<tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="X">X</a></h2></td>
+<td valign="top">
+<table class="link-index" width="100%" border="1">
+<tr>
+<td width="33%" class="link-index"><a href="service.xml-module.html">xml</a><br />
+<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#XSI">XSI</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks-module.html">xwalks</a><br />
+<span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.xml-module.html#xml_clean">xml_clean()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#XSI_NAMESPACE">XSI_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#XSI">XSI</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xwalks.OAI_Crosswalk-class.html#XSI_NAMESPACE">XSI_NAMESPACE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xwalks.OAI_Crosswalk-class.html">OAI_Crosswalk</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
+</tr>
+</table>
+</td></tr>
 <tr valign="top"><td valign="top" width="1%"><h2 class="epydoc"><a name="_">_</a></h2></td>
 <td valign="top">
 <table class="link-index" width="100%" border="1">
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperAuth-class.html#__init__">__init__()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperAuth-class.html">JperAuth</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.URIManager-class.html#__init__">__init__()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.URIManager-class.html">URIManager</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#_cache_notification">_cache_notification()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.models.oaipmh.OAIPMHRepo-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.models.oaipmh.OAIPMHRepo-class.html">OAIPMHRepo</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListRecords-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListRecords-class.html">ListRecords</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view-module.html#__package__">__package__</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view-module.html">service.view</a>)</span></td>
 </tr>
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperAuthenticator-class.html#__init__">__init__()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperAuthenticator-class.html">JperAuthenticator</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadArgument-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.BadArgument-class.html">BadArgument</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListSets-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListSets-class.html">ListSets</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#_illegal_ranges">_illegal_ranges</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadResumptionToken-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.BadResumptionToken-class.html">BadResumptionToken</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoMetadataFormats-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.NoMetadataFormats-class.html">NoMetadataFormats</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#_illegal_unichrs">_illegal_unichrs</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.BadVerb-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.BadVerb-class.html">BadVerb</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoRecordsMatch-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.NoRecordsMatch-class.html">NoRecordsMatch</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.xml-module.html#_illegal_xml_chars_RE">_illegal_xml_chars_RE</a><br />
+<span class="index-where">(in&nbsp;<a href="service.xml-module.html">service.xml</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.CannotDisseminateFormat-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.CannotDisseminateFormat-class.html">CannotDisseminateFormat</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.NoSetHierarchy-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.NoSetHierarchy-class.html">NoSetHierarchy</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#_parameterised_list_identifiers">_parameterised_list_identifiers()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.GetRecord-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.GetRecord-class.html">GetRecord</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAIPMHError-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAIPMHError-class.html">OAIPMHError</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#_parameterised_list_records">_parameterised_list_records()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.IdDoesNotExist-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.IdDoesNotExist-class.html">IdDoesNotExist</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#_resume_list_identifiers">_resume_list_identifiers()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.Identify-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.Identify-class.html">Identify</a>)</span></td>
 <td width="33%" class="link-index"><a href="config-module.html#__package__">__package__</a><br />
 <span class="index-where">(in&nbsp;<a href="config-module.html">config</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#_get_deposit_receipt">_get_deposit_receipt()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh-module.html#_resume_list_records">_resume_list_records()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh-module.html">service.view.oaipmh</a>)</span></td>
 </tr>
 <tr>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#__init__">__init__()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListIdentifiers-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListIdentifiers-class.html">ListIdentifiers</a>)</span></td>
+<td width="33%" class="link-index"><a href="config.service-module.html#__package__">__package__</a><br />
+<span class="index-where">(in&nbsp;<a href="config.service-module.html">config.service</a>)</span></td>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.OAI_PMH-class.html#_to_xml">_to_xml()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.OAI_PMH-class.html">OAI_PMH</a>)</span></td>
+</tr>
+<tr>
+<td width="33%" class="link-index"><a href="service.view.oaipmh.ListMetadataFormats-class.html#__init__">__init__()</a><br />
+<span class="index-where">(in&nbsp;<a href="service.view.oaipmh.ListMetadataFormats-class.html">ListMetadataFormats</a>)</span></td>
 <td width="33%" class="link-index"><a href="service-module.html#__package__">__package__</a><br />
 <span class="index-where">(in&nbsp;<a href="service-module.html">service</a>)</span></td>
-<td width="33%" class="link-index"><a href="service.sword.JperSword-class.html#_make_receipt">_make_receipt()</a><br />
-<span class="index-where">(in&nbsp;<a href="service.sword.JperSword-class.html">JperSword</a>)</span></td>
+<td width="33%" class="link-index">&nbsp;</td>
 </tr>
 </table>
 </td></tr>
@@ -379,14 +699,14 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-sword-in">Jisc Publications Router - SWORDv2 deposit endpoint</a></th>
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Nov 18 07:47:12 2015
+    Generated by Epydoc 3.0.1 on Wed Dec 16 17:54:29 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

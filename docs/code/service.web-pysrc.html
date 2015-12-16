@@ -31,7 +31,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-sword-in">Jisc Publications Router - SWORDv2 deposit endpoint</a></th>
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
           </tr></table></th>
   </tr>
 </table>
@@ -94,18 +94,16 @@
 <a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-name">initialise</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
 <a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
 <a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-comment"># most of the imports should be done here, after initialise()</tt> </tt>
-<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt> <tt class="py-keyword">import</tt> <tt class="py-name">render_template</tt> </tt>
-<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
-<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">octopus</tt><tt class="py-op">.</tt><tt class="py-name">modules</tt><tt class="py-op">.</tt><tt class="py-name">swordv2</tt><tt class="py-op">.</tt><tt class="py-name">swordv2_server</tt> <tt class="py-keyword">import</tt> <tt class="py-name">blueprint</tt> <tt class="py-keyword">as</tt> <tt class="py-name">swordv2</tt> </tt>
-<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">register_blueprint</tt><tt class="py-op">(</tt><tt class="py-name">swordv2</tt><tt class="py-op">)</tt> </tt>
-<a name="page_not_found"></a><div id="page_not_found-def"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
-<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-decorator">@</tt><tt class="py-decorator">app</tt><tt class="py-op">.</tt><tt class="py-name">errorhandler</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
-<a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="page_not_found-toggle" onclick="return toggle('page_not_found');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="service.web-module.html#page_not_found">page_not_found</a><tt class="py-op">(</tt><tt class="py-param">e</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="page_not_found-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="page_not_found-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">render_template</tt><tt class="py-op">(</tt><tt class="py-string">'errors/404.html'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">404</tt> </tt>
-</div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
-<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
-<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">run</tt><tt class="py-op">(</tt><tt class="py-name">host</tt><tt class="py-op">=</tt><tt class="py-string">'0.0.0.0'</tt><tt class="py-op">,</tt> <tt class="py-name">debug</tt><tt class="py-op">=</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="config" class="py-name" href="#" onclick="return doclink('link-6', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'DEBUG'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">port</tt><tt class="py-op">=</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="config" class="py-name" href="#" onclick="return doclink('link-7', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'PORT'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">threaded</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
-<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Module config.service=config.service-module.html,Package service=service-module.html"><a title="config.service
+service" class="py-name" href="#" onclick="return doclink('link-6', 'service', 'link-6');">service</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Package service.view=service.view-module.html"><a title="service.view" class="py-name" href="#" onclick="return doclink('link-7', 'view', 'link-7');">view</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module service.models.oaipmh=service.models.oaipmh-module.html,Module service.view.oaipmh=service.view.oaipmh-module.html,Function service.view.oaipmh.oaipmh()=service.view.oaipmh-module.html#oaipmh"><a title="service.models.oaipmh
+service.view.oaipmh
+service.view.oaipmh.oaipmh" class="py-name" href="#" onclick="return doclink('link-8', 'oaipmh', 'link-8');">oaipmh</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Variable service.view.oaipmh.blueprint=service.view.oaipmh-module.html#blueprint"><a title="service.view.oaipmh.blueprint" class="py-name" href="#" onclick="return doclink('link-9', 'blueprint', 'link-9');">blueprint</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">oai</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">register_blueprint</tt><tt class="py-op">(</tt><tt class="py-name">oai</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">run</tt><tt class="py-op">(</tt><tt class="py-name">host</tt><tt class="py-op">=</tt><tt class="py-string">'0.0.0.0'</tt><tt class="py-op">,</tt> <tt class="py-name">debug</tt><tt class="py-op">=</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="config" class="py-name" href="#" onclick="return doclink('link-10', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'DEBUG'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">port</tt><tt class="py-op">=</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="config" class="py-name" href="#" onclick="return doclink('link-11', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'PORT'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">threaded</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -133,14 +131,14 @@ expandto(location.href);
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-sword-in">Jisc Publications Router - SWORDv2 deposit endpoint</a></th>
+            ><a class="navbar" target="_top" href="https://github.com/JiscPER/jper-oaipmh">Jisc Publications Router - OAI-PMH endpoint</a></th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Nov 18 07:47:12 2015
+    Generated by Epydoc 3.0.1 on Wed Dec 16 17:54:31 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
