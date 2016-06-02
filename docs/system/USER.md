@@ -27,5 +27,5 @@ Where "repo_id" is the account id of the repository whose notifications to retri
 
 For example:
 
-    GET https://pubsrouter.jisc.ac.uk/oai/repo/123456789?verb=ListRecords&from=2016-01-01&metadataPrefix=oai_dc
+    GET https://pubrouter.jisc.ac.uk/oai/repo/123456789?verb=ListRecords&from=2016-01-01&metadataPrefix=oai_dc
 
