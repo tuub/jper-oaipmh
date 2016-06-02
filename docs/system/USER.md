@@ -11,17 +11,17 @@ This endpoint only supports oai_dc formatted metadata, and can only access notif
 
 You can retrieve metadata records for all routed notifications by sending requests to
 
-    https://pubsrouter.jisc.ac.uk/oai/all
+    https://pubrouter.jisc.ac.uk/oai/all
 
 For example:
 
-    GET https://pubsrouter.jisc.ac.uk/oai/all?verb=ListRecords&from=2016-01-01&metadataPrefix=oai_dc
+    GET https://pubrouter.jisc.ac.uk/oai/all?verb=ListRecords&from=2016-01-01&metadataPrefix=oai_dc
     
 ## Routed notifications for a specific repository
 
 You can retrieve metadata records for all routed notifications for a specific repository by sending requests to
 
-    https://pubsrouter.jisc.ac.uk/oai/repo/<repo id>
+    https://pubrouter.jisc.ac.uk/oai/repo/<repo id>
 
 Where "repo_id" is the account id of the repository whose notifications to retrieve.
 
