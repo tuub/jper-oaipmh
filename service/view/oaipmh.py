@@ -270,7 +270,7 @@ def list_records(dao, base_url, metadata_prefix=None, from_date=None, until_date
     :param resumption_token: resumption token for paging
     :return: a ListRecords object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListRecords request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, to=until_date, a=resumption_token))
+    app.logger.info(u"Processing ListRecords request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
 
     if resumption_token is None:
         # do an initial list records
@@ -395,7 +395,7 @@ def list_identifiers(dao, base_url, metadata_prefix=None, from_date=None, until_
     :param resumption_token: resumption token for paging
     :return: a ListRecords object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListIdentifiers request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, to=until_date, a=resumption_token))
+    app.logger.info(u"Processing ListIdentifiers request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
 
     if resumption_token is None:
         # do an initial list records

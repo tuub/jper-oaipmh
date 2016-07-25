@@ -36,7 +36,8 @@ if __name__ == "__main__":
 # most of the imports should be done here, after initialise()
 
 from service.view.oaipmh import blueprint as oai
-app.register_blueprint(oai)
+app.register_blueprint(oai, url_prefix='/oaipmh')
+# app.register_blueprint(oai)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=app.config['PORT'], threaded=False)

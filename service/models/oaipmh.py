@@ -70,6 +70,9 @@ class OAIPMHRecord(object):
             page = int(math.ceil((start_number + 1.0) / list_size))
 
         nl = j.list_notifications(from_date, page=page, page_size=list_size, **kwargs)
+
+        ## app.logger.debug(u"##### list_records: JPER client found {y} notification(s): from={f}, page={p}, page_size={s}".format(y=nl.total, f=from_date, p=page, s=list_size))
+
         return nl.total, nl.notifications
 
     def pull(self, identifier):
