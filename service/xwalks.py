@@ -133,7 +133,7 @@ class OAI_DC(OAI_Crosswalk):
 
         # metadata.license_ref.title -> oai_dc:rights
         lic = record.license
-        if lic.get("title") is not None:
+        if lic is not None and lic.get("title") is not None:
             lt = etree.SubElement(oai_dc, self.DC + "rights")
             set_text(lt, lic.get("title"))
 
