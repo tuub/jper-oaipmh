@@ -47,7 +47,7 @@ SECRET_KEY = "super-secret-key"
 ## JPER Client information
 
 # Base URL for requests to the JPER API
-JPER_BASE_URL = "https://pubrouter.jisc.ac.uk/api/v1"
+JPER_BASE_URL = "https://oa-deepgreen.kobv.de/api/v1"
 """API base url for communicating with JPER"""
 
 # API key to use for authenticated requests against JPER API
@@ -58,9 +58,9 @@ JPER_API_KEY = ""
 ##############################################
 ## OAI-PMH server configuration
 
-OAI_REPO_NAME = "Jisc Publications Router OAI-PMH Endpoint"
+OAI_REPO_NAME = "DeepGreen Prototype OAI-PMH Endpoint"
 
-OAI_ADMIN_EMAIL = "admin@jisc.ac.uk"
+OAI_ADMIN_EMAIL = "deeepgreen@zib.de"
 
 OAI_MAX_LOOKBACK = 7776000
 
@@ -74,7 +74,7 @@ OAIPMH_METADATA_FORMATS = [
     OAI_DC_METADATA_FORMAT
 ]
 
-OAIPMH_IDENTIFIER_NAMESPACE = "pubrouter.jisc.ac.uk"
+OAIPMH_IDENTIFIER_NAMESPACE = "oa-deepgreen.kobv.de"
 
 OAIPMH_LIST_RECORDS_PAGE_SIZE = 100
 
