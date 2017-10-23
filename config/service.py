@@ -47,7 +47,7 @@ SECRET_KEY = "super-secret-key"
 ## JPER Client information
 
 # Base URL for requests to the JPER API
-JPER_BASE_URL = "https://oa-deepgreen.kobv.de/api/v1"
+JPER_BASE_URL = "https://www.oa-deepgreen.de/api/v1"
 """API base url for communicating with JPER"""
 
 # API key to use for authenticated requests against JPER API
@@ -74,7 +74,7 @@ OAIPMH_METADATA_FORMATS = [
     OAI_DC_METADATA_FORMAT
 ]
 
-OAIPMH_IDENTIFIER_NAMESPACE = "oa-deepgreen.kobv.de"
+OAIPMH_IDENTIFIER_NAMESPACE = "www.oa-deepgreen.de"
 
 OAIPMH_LIST_RECORDS_PAGE_SIZE = 100
 
