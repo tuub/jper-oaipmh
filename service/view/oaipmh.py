@@ -40,7 +40,7 @@ def oaipmh(repository_id=None):
     # work out the verb and associated parameters
     verb = request.values.get("verb")
 
-    app.logger.info(u"Received request for Verb:{x} against Repository:{y}".format(x=verb, y=repository_id if repository_id is not None else "All"))
+    app.logger.info("Received request for Verb:{x} against Repository:{y}".format(x=verb, y=repository_id if repository_id is not None else "All"))
 
     # call the appropriate protocol operation
     result = None
@@ -190,7 +190,7 @@ def identify(dao, base_url):
     :param base_url: base url of the service
     :return: An Identify object which can be serialised and returned
     """
-    app.logger.info(u"Processing Identify request")
+    app.logger.info("Processing Identify request")
 
     repo_name = app.config.get("OAI_REPO_NAME")
     admin_email = app.config.get("OAI_ADMIN_EMAIL")
@@ -207,11 +207,11 @@ def list_sets(dao, base_url, resumption_token=None):
     :param resumption_token: resumption token for paging - not supported or necessary in this version
     :return: a ListSets object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListSets request")
+    app.logger.info("Processing ListSets request")
 
     # This implementation does not support resumption tokens for this operation
     if resumption_token is not None:
-        app.logger.debug(u"Resumption token supplied to ListSets - unsupported operation")
+        app.logger.debug("Resumption token supplied to ListSets - unsupported operation")
         return BadResumptionToken(base_url)
 
     # just ask the DAO to get a list of all the sets for us, then we
@@ -231,19 +231,19 @@ def list_metadata_formats(dao, base_url, identifier=None):
     :param identifier: The record identifier for which we want to know the metadata formats
     :return: a ListMetadataFormats object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListMetadataFormats request for Notification:{x}".format(x=identifier))
+    app.logger.info("Processing ListMetadataFormats request for Notification:{x}".format(x=identifier))
 
     # if we are given an identifier, it has to be valid
     if identifier is not None:
         if not dao.identifier_exists(identifier):
-            app.logger.debug(u"Notification:{x} does not exist - bad request".format(x=identifier))
+            app.logger.debug("Notification:{x} does not exist - bad request".format(x=identifier))
             return IdDoesNotExist(base_url)
 
     # get the configured formats - there should always be some, but just in case
     # the service is mis-configured, this will throw the correct error
     formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
     if formats is None or len(formats) == 0:
-        app.logger.error(u"No Metadata Formats configured - you should fix this in configuration")
+        app.logger.error("No Metadata Formats configured - you should fix this in configuration")
         return NoMetadataFormats(base_url)
 
     # create and return the list metadata formats response
@@ -270,7 +270,7 @@ def list_records(dao, base_url, metadata_prefix=None, from_date=None, until_date
     :param resumption_token: resumption token for paging
     :return: a ListRecords object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListRecords request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
+    app.logger.info("Processing ListRecords request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
 
     if resumption_token is None:
         # do an initial list records
@@ -297,13 +297,13 @@ def _parameterised_list_records(dao, base_url, metadata_prefix=None, from_date=N
     """
     # metadata prefix is required
     if metadata_prefix is None:
-        app.logger.debug(u"No metadata prefix provided - bad request")
+        app.logger.debug("No metadata prefix provided - bad request")
         return BadArgument(base_url)
 
     # get the formats and check that we have formats that we can disseminate
     formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
     if formats is None or len(formats) == 0:
-        app.logger.error(u"No Metadata Formats configured - you should fix this in configuration")
+        app.logger.error("No Metadata Formats configured - you should fix this in configuration")
         return CannotDisseminateFormat(base_url)
 
     # check that the dates are formatted correctly
@@ -315,7 +315,7 @@ def _parameterised_list_records(dao, base_url, metadata_prefix=None, from_date=N
         ul = oaitools.DateFormat.legitimate_granularity(until_date)
 
     if not fl or not ul:
-        app.logger.debug(u"One or both of From/Until dates are incorrectly formatted: From:{x} To:{y} - bad request".format(x=from_date, y=until_date))
+        app.logger.debug("One or both of From/Until dates are incorrectly formatted: From:{x} To:{y} - bad request".format(x=from_date, y=until_date))
         return BadArgument(base_url)
 
     # get the result set size
@@ -375,7 +375,7 @@ def _resume_list_records(dao, base_url, resumption_token=None):
     try:
         params = oaitools.decode_resumption_token(resumption_token)
     except oaitools.ResumptionTokenException:
-        app.logger.debug(u"Problem interpreting ResumptionToken:{x} - bad request".format(x=resumption_token))
+        app.logger.debug("Problem interpreting ResumptionToken:{x} - bad request".format(x=resumption_token))
         return BadResumptionToken(base_url)
     return _parameterised_list_records(dao, base_url, **params)
 
@@ -395,7 +395,7 @@ def list_identifiers(dao, base_url, metadata_prefix=None, from_date=None, until_
     :param resumption_token: resumption token for paging
     :return: a ListRecords object which can be serialised and returned
     """
-    app.logger.info(u"Processing ListIdentifiers request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
+    app.logger.info("Processing ListIdentifiers request for Metadata Prefix:{x} From:{y} To:{z} ResumptionToken:{a}".format(x=metadata_prefix, y=from_date, z=until_date, a=resumption_token))
 
     if resumption_token is None:
         # do an initial list records
@@ -426,13 +426,13 @@ def _parameterised_list_identifiers(dao, base_url, metadata_prefix=None, from_da
     """
     # metadata prefix is required
     if metadata_prefix is None:
-        app.logger.debug(u"No metadata prefix provided - bad request")
+        app.logger.debug("No metadata prefix provided - bad request")
         return BadArgument(base_url)
 
     # get the formats and check that we have formats that we can disseminate
     formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
     if formats is None or len(formats) == 0:
-        app.logger.error(u"No Metadata Formats configured - you should fix this in configuration")
+        app.logger.error("No Metadata Formats configured - you should fix this in configuration")
         return CannotDisseminateFormat(base_url)
 
     # check that the dates are formatted correctly
@@ -444,7 +444,7 @@ def _parameterised_list_identifiers(dao, base_url, metadata_prefix=None, from_da
         ul = oaitools.DateFormat.legitimate_granularity(until_date)
 
     if not fl or not ul:
-        app.logger.debug(u"One or both of From/Until dates are incorrectly formatted: From:{x} To:{y} - bad request".format(x=from_date, y=until_date))
+        app.logger.debug("One or both of From/Until dates are incorrectly formatted: From:{x} To:{y} - bad request".format(x=from_date, y=until_date))
         return BadArgument(base_url)
 
     # get the result set size
@@ -503,7 +503,7 @@ def _resume_list_identifiers(dao, base_url, resumption_token=None):
     try:
         params = oaitools.decode_resumption_token(resumption_token)
     except oaitools.ResumptionTokenException:
-        app.logger.debug(u"Problem interpreting ResumptionToken:{x} - bad request".format(x=resumption_token))
+        app.logger.debug("Problem interpreting ResumptionToken:{x} - bad request".format(x=resumption_token))
         return BadResumptionToken(base_url)
     return _parameterised_list_identifiers(dao, base_url, **params)
 
@@ -518,17 +518,17 @@ def get_record(dao, base_url, identifier=None, metadata_prefix=None):
     :param metadata_prefix: metadata prefix for the format we want the record in
     :return: a GetRecord object which can be serialised and returned
     """
-    app.logger.info(u"Processing GetRecord request for Notification:{x} Metadata Prefix:{y}".format(x=identifier, y=metadata_prefix))
+    app.logger.info("Processing GetRecord request for Notification:{x} Metadata Prefix:{y}".format(x=identifier, y=metadata_prefix))
 
     # check that we have both identifier and prefix - they are both required
     if identifier is None or metadata_prefix is None:
-        app.logger.debug(u"One of metadata prefix or identifier missing - bad request")
+        app.logger.debug("One of metadata prefix or identifier missing - bad request")
         return BadArgument(base_url)
     
     # get the formats and check that we have formats that we can disseminate
     formats = app.config.get("OAIPMH_METADATA_FORMATS", [])
     if formats is None or len(formats) == 0:
-        app.logger.error(u"No Metadata Formats configured - you should fix this in configuration")
+        app.logger.error("No Metadata Formats configured - you should fix this in configuration")
         return CannotDisseminateFormat(base_url)
     
     # look for our record of the format we've been asked for
@@ -537,7 +537,7 @@ def get_record(dao, base_url, identifier=None, metadata_prefix=None):
             # obtain the record from the dao
             record = dao.pull(identifier)
             if record is None:
-                app.logger.debug(u"Notification:{x} does not exist in JPER".format(x=identifier))
+                app.logger.debug("Notification:{x} does not exist in JPER".format(x=identifier))
                 return IdDoesNotExist(base_url)
 
             # do the crosswalk
